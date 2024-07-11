@@ -16,21 +16,18 @@ router.use('/users', require('./user'))
 // token:
 router.use('/tokens', require('./token'))
 
-
-// assingment:
+// assignment:
 router.use('/assignments', require('./assignment'))
 // course:
 router.use('/courses', require('./course'))
 // enrollment:
 router.use('/enrollments', require('./enrollment'))
-// exercises
+// exercises:
 router.use('/exercises', require('./exercises'))
-// stages
+// stages:
 router.use('/stages', require('./stages'))
-// stagecontent
+// stagecontent:
 router.use('/stagecontent', require('./stagecontent'))
-
-
 
 // document:
 router.use('/documents', require('./document'))
