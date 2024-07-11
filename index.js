@@ -3,6 +3,7 @@
     NODEJS EXPRESS | CLARUSWAY FullStack Team
 ------------------------------------------------------- */
 const express = require('express')
+const cors = require('cors');
 const app = express()
 
 /* ------------------------------------------------------- */
@@ -25,6 +26,8 @@ dbConnection()
 
 /* ------------------------------------------------------- */
 // Middlewares:
+
+app.use(cors());
 
 // Accept JSON:
 app.use(express.json())
