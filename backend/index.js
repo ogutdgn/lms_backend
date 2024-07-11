@@ -1,60 +1,71 @@
-"use strict";
-const express = require('express');
-const path = require("path");
-const app = express();
+"use strict"
+/* -------------------------------------------------------
+    NODEJS EXPRESS | CLARUSWAY FullStack Team
+------------------------------------------------------- */
+const express = require('express')
+const app = express()
 
-// Load environment variables
-require('dotenv').config({ path: __dirname + '/.env' });
+/* ------------------------------------------------------- */
+// Required Modules:
 
-const HOST = process.env.HOST || '127.0.0.1';
-const PORT = process.env.PORT || 8000;
+// envVariables to process.env:
+require('dotenv').config()
+const HOST = process.env?.HOST || '127.0.0.1'
+const PORT = process.env?.PORT || 8000
 
-// Connect to the database
-const { dbConnection } = require('./src/configs/dbConnection');
-dbConnection();
+// asyncErrors to errorHandler:
+require('express-async-errors')
 
-// Use CORS to allow cross-origin requests
-const cors = require('cors');
-app.use(cors({
-    origin: 'http://localhost:3000',
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE']
-}));
+/* ------------------------------------------------------- */
+// Configrations:
 
-// Middleware to parse JSON requests
-app.use(express.json());
+// Connect to DB:
+const { dbConnection } = require('./src/configs/dbConnection')
+dbConnection()
 
-// Serve static files from the upload directory
-app.use('/upload', express.static('./upload'));
+/* ------------------------------------------------------- */
+// Middlewares:
 
-// Authentication middleware
-app.use(require('./src/middlewares/authentication'));
+// Accept JSON:
+app.use(express.json())
 
-// Logging middleware
-app.use(require('./src/middlewares/logger'));
+// Check Authentication:
+app.use(require('./src/middlewares/authentication'))
 
-// Query handler middleware
-app.use(require('./src/middlewares/queryHandler'));
+// Run Logger:
+app.use(require('./src/middlewares/logger'))
 
-// API Routes:
-app.use('/api', require('./src/routes/index'));
+// res.getModelList():
+app.use(require('./src/middlewares/queryHandler'))
 
-// Serve React build directory
-const frontendPath = path.join(__dirname, "../frontend/build");
-app.use(express.static(frontendPath));
+/* ------------------------------------------------------- */
+// Routes:
 
-// Serve the index.html for any other routes
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(frontendPath, 'index.html'));
-});
+// HomePath:
+app.all('/', (req, res) => {
+    res.send({
+        error: false,
+        message: 'Welcome to NobelHızlıOkuma',
+        documents: {
+            swagger: '/documents/swagger',
+            redoc: '/documents/redoc',
+            json: '/documents/json',
+        },
+        user: req.user
+    })
+})
 
-// Error handler middleware
-app.use(require('./src/middlewares/errorHandler'));
+// Routes:
+app.use(require('./src/routes'))
 
-// Start the server
-app.listen(PORT, HOST, () => console.log(`Server running at http://${HOST}:${PORT}`));
+/* ------------------------------------------------------- */
 
+// errorHandler:
+app.use(require('./src/middlewares/errorHandler'))
+
+// RUN SERVER:
+app.listen(PORT, HOST, () => console.log(`http://${HOST}:${PORT}`))
 
 /* ------------------------------------------------------- */
 // Syncronization (must be in commentLine):
-// require('./src/helpers/sync')() // !!! It clear database.
+// require('./src/helpers/sync')()
