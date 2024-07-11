@@ -41,12 +41,12 @@ const document = {
 	definitions: {
 		// Models:
 		"User": require('./src/models/user').schema.obj,
-		"Brand": require('./src/models/brand').schema.obj,
-		"Category": require('./src/models/category').schema.obj,
-		"Firm": require('./src/models/firm').schema.obj,
-		"Product": require('./src/models/product').schema.obj,
-		"Purchase": require('./src/models/purchase').schema.obj,
-		"Sale": require('./src/models/sale').schema.obj,
+		"Course": require('./src/models/course').schema.obj,
+		"Enrollement": require('./src/models/enrollment').schema.obj,
+		"Exercise": require('./src/models/exercises').schema.obj,
+		"Stage": require('./src/models/stages').schema.obj,
+		// "Purchase": require('./src/models/purchase').schema.obj,
+		// "Sale": require('./src/models/sale').schema.obj,
 	}
 }
 

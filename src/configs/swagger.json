@@ -2,15 +2,15 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "Stock Management API",
-    "description": "Stock Management System",
+    "title": "REST API",
+    "description": "### ERD:",
     "termsOfService": "http://www.clarusway.com/#",
     "contact": {
-      "name": "Clarusway",
+      "name": "",
       "email": "qadir@clarusway.com"
     },
     "license": {
-      "name": "ISC Licence"
+      "name": "ISC"
     }
   },
   "host": "127.0.0.1:8000",
@@ -49,6 +49,11 @@
         "description": "Login with username (or email) and password for get simpleToken and JWT",
         "parameters": [
           {
+            "name": "req",
+            "in": "query",
+            "type": "string"
+          },
+          {
             "name": "body",
             "in": "body",
             "required": true,
@@ -83,6 +88,11 @@
         "description": "Refresh accessToken with  ",
         "parameters": [
           {
+            "name": "req",
+            "in": "query",
+            "type": "string"
+          },
+          {
             "name": "body",
             "in": "body",
             "required": true,
@@ -116,6 +126,13 @@
         ],
         "summary": "SimpleToken: Logout",
         "description": "Delete token key.",
+        "parameters": [
+          {
+            "name": "req",
+            "in": "query",
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -130,6 +147,13 @@
         ],
         "summary": "List Users",
         "description": "  You can use <u>filter[] & search[] & sort[] & page & limit</u> queries with endpoint.  <ul> Examples:   <li>URL/?<b>filter[field1]=value1&filter[field2]=value2</b></li>   <li>URL/?<b>search[field1]=value1&search[field2]=value2</b></li>   <li>URL/?<b>sort[field1]=asc&sort[field2]=desc</b></li>   <li>URL/?<b>limit=10&page=1</b></li>  </ul>  ",
+        "parameters": [
+          {
+            "name": "req",
+            "in": "query",
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -143,6 +167,11 @@
         "summary": "Create User",
         "description": "",
         "parameters": [
+          {
+            "name": "req",
+            "in": "query",
+            "type": "string"
+          },
           {
             "name": "body",
             "in": "body",
@@ -194,6 +223,11 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
+            "type": "string"
           }
         ],
         "responses": {
@@ -213,6 +247,11 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           },
           {
@@ -249,6 +288,9 @@
         "responses": {
           "202": {
             "description": "Accepted"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -263,6 +305,11 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -289,6 +336,11 @@
             "type": "string"
           },
           {
+            "name": "req",
+            "in": "query",
+            "type": "string"
+          },
+          {
             "name": "body",
             "in": "body",
             "required": true,
@@ -322,18 +374,26 @@
         "responses": {
           "202": {
             "description": "Accepted"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
-    "/brands/{(id,permissions.isStaff,brand.read}": {
+    "/assignments/{(id,permissions.isLogin,assignment.read}": {
       "get": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isStaff,brand.read",
+            "name": "(id,permissions.isLogin,assignment.read",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -344,14 +404,19 @@
         }
       }
     },
-    "/brands/{(id,permissions.isAdmin,brand.create}": {
+    "/assignments/{(id,permissions.isAdmin,assignment.create}": {
       "post": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,brand.create",
+            "name": "(id,permissions.isAdmin,assignment.create",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -362,14 +427,19 @@
         }
       }
     },
-    "/brands/{(id,permissions.isAdmin,brand.update}": {
+    "/assignments/{(id,permissions.isAdmin,assignment.update}": {
       "put": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,brand.update",
+            "name": "(id,permissions.isAdmin,assignment.update",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -383,9 +453,14 @@
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,brand.update",
+            "name": "(id,permissions.isAdmin,assignment.update",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -396,14 +471,19 @@
         }
       }
     },
-    "/brands/{(id,permissions.isAdmin,brand.{_{__function__}_}delete)module.exports=router}": {
+    "/assignments/{(id,permissions.isAdmin,assignment.{_{__function__}_}delete);}": {
       "delete": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,brand.{_{__function__}_}delete)module.exports=router",
+            "name": "(id,permissions.isAdmin,assignment.{_{__function__}_}delete);",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -414,14 +494,84 @@
         }
       }
     },
-    "/categories/{(id,permissions.isStaff,category.read}": {
+    "/assignments/{id}/isDone": {
+      "patch": {
+        "tags": [
+          "Assignments"
+        ],
+        "summary": "Update Assignment isDone status",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "isDone": {
+                  "type": "boolean",
+                  "example": true
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/assignments/": {
+      "get": {
+        "tags": [
+          "Assignments"
+        ],
+        "summary": "List Assignments",
+        "description": "  You can use <u>filter[] & search[] & sort[] & page & limit</u> queries with endpoint.  <ul> Examples:   <li>URL/?<b>filter[field1]=value1&filter[field2]=value2</b></li>   <li>URL/?<b>search[field1]=value1&search[field2]=value2</b></li>   <li>URL/?<b>sort[field1]=asc&sort[field2]=desc</b></li>   <li>URL/?<b>limit=10&page=1</b></li>  </ul>  ",
+        "parameters": [
+          {
+            "name": "req",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/courses/{(id,permissions.isLogin,course.read}": {
       "get": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isStaff,category.read",
+            "name": "(id,permissions.isLogin,course.read",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -432,14 +582,19 @@
         }
       }
     },
-    "/categories/{(id,permissions.isAdmin,category.create}": {
+    "/courses/{(id,permissions.isAdmin,course.create}": {
       "post": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,category.create",
+            "name": "(id,permissions.isAdmin,course.create",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -450,14 +605,19 @@
         }
       }
     },
-    "/categories/{(id,permissions.isAdmin,category.update}": {
+    "/courses/{(id,permissions.isAdmin,course.update}": {
       "put": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,category.update",
+            "name": "(id,permissions.isAdmin,course.update",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -471,9 +631,14 @@
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,category.update",
+            "name": "(id,permissions.isAdmin,course.update",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -484,14 +649,19 @@
         }
       }
     },
-    "/categories/{(id,permissions.isAdmin,category.{_{__function__}_}delete)module.exports=router}": {
+    "/courses/{(id,permissions.isAdmin,course.{_{__function__}_}delete)module.exports=router}": {
       "delete": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,category.{_{__function__}_}delete)module.exports=router",
+            "name": "(id,permissions.isAdmin,course.{_{__function__}_}delete)module.exports=router",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -502,14 +672,19 @@
         }
       }
     },
-    "/firms/{(id,permissions.isStaff,firm.read}": {
+    "/enrollments/{(id,permissions.isLogin,enrollment.read}": {
       "get": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isStaff,firm.read",
+            "name": "(id,permissions.isLogin,enrollment.read",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -520,14 +695,19 @@
         }
       }
     },
-    "/firms/{(id,permissions.isAdmin,firm.create}": {
+    "/enrollments/{(id,permissions.isLogin,enrollment.create}": {
       "post": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,firm.create",
+            "name": "(id,permissions.isLogin,enrollment.create",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -538,14 +718,19 @@
         }
       }
     },
-    "/firms/{(id,permissions.isAdmin,firm.update}": {
+    "/enrollments/{(id,permissions.isAdmin,enrollment.update}": {
       "put": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,firm.update",
+            "name": "(id,permissions.isAdmin,enrollment.update",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -559,9 +744,14 @@
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,firm.update",
+            "name": "(id,permissions.isAdmin,enrollment.update",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -572,14 +762,19 @@
         }
       }
     },
-    "/firms/{(id,permissions.isAdmin,firm.{_{__function__}_}delete)module.exports=router}": {
+    "/enrollments/{(id,permissions.isAdmin,enrollment.{_{__function__}_}delete)module.exports=router}": {
       "delete": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,firm.{_{__function__}_}delete)module.exports=router",
+            "name": "(id,permissions.isAdmin,enrollment.{_{__function__}_}delete)module.exports=router",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -590,14 +785,19 @@
         }
       }
     },
-    "/products/{(id,permissions.isStaff,product.read}": {
+    "/exercises/{(id,permissions.isLogin,exercise.read}": {
       "get": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isStaff,product.read",
+            "name": "(id,permissions.isLogin,exercise.read",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -608,14 +808,19 @@
         }
       }
     },
-    "/products/{(id,permissions.isAdmin,product.create}": {
+    "/exercises/{(id,permissions.isAdmin,exercise.create}": {
       "post": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,product.create",
+            "name": "(id,permissions.isAdmin,exercise.create",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -626,14 +831,19 @@
         }
       }
     },
-    "/products/{(id,permissions.isAdmin,product.update}": {
+    "/exercises/{(id,permissions.isAdmin,exercise.update}": {
       "put": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,product.update",
+            "name": "(id,permissions.isAdmin,exercise.update",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -647,9 +857,14 @@
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,product.update",
+            "name": "(id,permissions.isAdmin,exercise.update",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -660,14 +875,19 @@
         }
       }
     },
-    "/products/{(id,permissions.isAdmin,product.{_{__function__}_}delete)module.exports=router}": {
+    "/exercises/{(id,permissions.isAdmin,exercise.{_{__function__}_}delete)module.exports=router}": {
       "delete": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,product.{_{__function__}_}delete)module.exports=router",
+            "name": "(id,permissions.isAdmin,exercise.{_{__function__}_}delete)module.exports=router",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -678,14 +898,19 @@
         }
       }
     },
-    "/purchases/{(id,permissions.isStaff,purchase.read}": {
+    "/stages/{(id,permissions.isLogin,stage.read}": {
       "get": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isStaff,purchase.read",
+            "name": "(id,permissions.isLogin,stage.read",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -696,14 +921,19 @@
         }
       }
     },
-    "/purchases/{(id,permissions.isAdmin,purchase.create}": {
+    "/stages/{(id,permissions.isAdmin,stage.create}": {
       "post": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,purchase.create",
+            "name": "(id,permissions.isAdmin,stage.create",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -714,14 +944,19 @@
         }
       }
     },
-    "/purchases/{(id,permissions.isAdmin,purchase.update}": {
+    "/stages/{(id,permissions.isAdmin,stage.update}": {
       "put": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,purchase.update",
+            "name": "(id,permissions.isAdmin,stage.update",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -735,9 +970,14 @@
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,purchase.update",
+            "name": "(id,permissions.isAdmin,stage.update",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -748,14 +988,19 @@
         }
       }
     },
-    "/purchases/{(id,permissions.isAdmin,purchase.{_{__function__}_}delete)module.exports=router}": {
+    "/stages/{(id,permissions.isAdmin,stage.{_{__function__}_}delete)}": {
       "delete": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,purchase.{_{__function__}_}delete)module.exports=router",
+            "name": "(id,permissions.isAdmin,stage.{_{__function__}_}delete)",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -766,14 +1011,63 @@
         }
       }
     },
-    "/sales/{(id,permissions.isStaff,sale.read}": {
+    "/stages/{id}/isDone": {
+      "patch": {
+        "tags": [
+          "Assignments"
+        ],
+        "summary": "Update Assignment isDone status",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "isDone": {
+                  "type": "boolean",
+                  "example": true
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/stagecontent/{(id,permissions.isLogin,stagecontent.read}": {
       "get": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isStaff,sale.read",
+            "name": "(id,permissions.isLogin,stagecontent.read",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -784,14 +1078,19 @@
         }
       }
     },
-    "/sales/{(id,permissions.isAdmin,sale.create}": {
+    "/stagecontent/{(id,permissions.isAdmin,stagecontent.create}": {
       "post": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,sale.create",
+            "name": "(id,permissions.isAdmin,stagecontent.create",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -802,14 +1101,19 @@
         }
       }
     },
-    "/sales/{(id,permissions.isAdmin,sale.update}": {
+    "/stagecontent/{(id,permissions.isAdmin,stagecontent.update}": {
       "put": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,sale.update",
+            "name": "(id,permissions.isAdmin,stagecontent.update",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -823,9 +1127,14 @@
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,sale.update",
+            "name": "(id,permissions.isAdmin,stagecontent.update",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
@@ -836,20 +1145,49 @@
         }
       }
     },
-    "/sales/{(id,permissions.isAdmin,sale.{_{__function__}_}delete)module.exports=router}": {
+    "/stagecontent/{(id,permissions.isAdmin,stagecontent.{_{__function__}_}delete)}": {
       "delete": {
         "description": "",
         "parameters": [
           {
-            "name": "(id,permissions.isAdmin,sale.{_{__function__}_}delete)module.exports=router",
+            "name": "(id,permissions.isAdmin,stagecontent.{_{__function__}_}delete)",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "req",
+            "in": "query",
             "type": "string"
           }
         ],
         "responses": {
           "default": {
             "description": ""
+          }
+        }
+      }
+    },
+    "/stagecontent/updateOrder": {
+      "post": {
+        "tags": [
+          "StageContent"
+        ],
+        "summary": "Update Order of StageContent",
+        "description": "",
+        "parameters": [
+          {
+            "name": "req",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
@@ -896,6 +1234,9 @@
             "required": {
               "type": "boolean",
               "example": true
+            },
+            "set": {
+              "type": "function"
             }
           }
         },
@@ -967,7 +1308,7 @@
             }
           }
         },
-        "isStaff": {
+        "isTeacher": {
           "type": "object",
           "properties": {
             "type": {
@@ -993,73 +1334,10 @@
         }
       }
     },
-    "Brand": {
+    "Course": {
       "type": "object",
       "properties": {
-        "name": {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "function"
-            },
-            "trim": {
-              "type": "boolean",
-              "example": true
-            },
-            "required": {
-              "type": "boolean",
-              "example": true
-            },
-            "unique": {
-              "type": "boolean",
-              "example": true
-            }
-          }
-        },
-        "images": {
-          "type": "array",
-          "example": [],
-          "items": {}
-        }
-      }
-    },
-    "Category": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "function"
-            },
-            "trim": {
-              "type": "boolean",
-              "example": true
-            },
-            "required": {
-              "type": "boolean",
-              "example": true
-            },
-            "unique": {
-              "type": "boolean",
-              "example": true
-            },
-            "set": {
-              "type": "function"
-            }
-          }
-        },
-        "images": {
-          "type": "array",
-          "example": [],
-          "items": {}
-        }
-      }
-    },
-    "Firm": {
-      "type": "object",
-      "properties": {
-        "name": {
+        "courseName": {
           "type": "object",
           "properties": {
             "type": {
@@ -1075,7 +1353,19 @@
             }
           }
         },
-        "phone": {
+        "courseContent": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "function"
+            },
+            "trim": {
+              "type": "boolean",
+              "example": true
+            }
+          }
+        },
+        "courseLabel": {
           "type": "object",
           "properties": {
             "type": {
@@ -1088,109 +1378,6 @@
             "required": {
               "type": "boolean",
               "example": true
-            }
-          }
-        },
-        "address": {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "function"
-            },
-            "trim": {
-              "type": "boolean",
-              "example": true
-            },
-            "required": {
-              "type": "boolean",
-              "example": true
-            }
-          }
-        },
-        "images": {
-          "type": "array",
-          "example": [],
-          "items": {}
-        }
-      }
-    },
-    "Product": {
-      "type": "object",
-      "properties": {
-        "categoryId": {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "function"
-            },
-            "ref": {
-              "type": "string",
-              "example": "Category"
-            },
-            "required": {
-              "type": "boolean",
-              "example": true
-            },
-            "index": {
-              "type": "boolean",
-              "example": true
-            }
-          }
-        },
-        "brandId": {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "function"
-            },
-            "ref": {
-              "type": "string",
-              "example": "Brand"
-            },
-            "required": {
-              "type": "boolean",
-              "example": true
-            },
-            "index": {
-              "type": "boolean",
-              "example": true
-            }
-          }
-        },
-        "name": {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "function"
-            },
-            "trim": {
-              "type": "boolean",
-              "example": true
-            },
-            "required": {
-              "type": "boolean",
-              "example": true
-            }
-          }
-        },
-        "images": {
-          "type": "array",
-          "example": [],
-          "items": {}
-        },
-        "stock": {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "function"
-            },
-            "required": {
-              "type": "boolean",
-              "example": true
-            },
-            "default": {
-              "type": "number",
-              "example": 0
             }
           }
         },
@@ -1205,13 +1392,34 @@
               "example": true
             }
           }
+        },
+        "isPublish": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "function"
+            },
+            "required": {
+              "type": "boolean",
+              "example": true
+            },
+            "default": {
+              "type": "boolean",
+              "example": false
+            }
+          }
+        },
+        "courseImg": {
+          "type": "array",
+          "example": [],
+          "items": {}
         }
       }
     },
-    "Purchase": {
+    "Enrollement": {
       "type": "object",
       "properties": {
-        "userId": {
+        "studentId": {
           "type": "object",
           "properties": {
             "type": {
@@ -1224,14 +1432,10 @@
             "required": {
               "type": "boolean",
               "example": true
-            },
-            "index": {
-              "type": "boolean",
-              "example": true
             }
           }
         },
-        "firmId": {
+        "courseId": {
           "type": "object",
           "properties": {
             "type": {
@@ -1239,105 +1443,85 @@
             },
             "ref": {
               "type": "string",
-              "example": "Firm"
+              "example": "Course"
             },
             "required": {
               "type": "boolean",
               "example": true
-            },
-            "index": {
-              "type": "boolean",
-              "example": true
-            }
-          }
-        },
-        "brandId": {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "function"
-            },
-            "ref": {
-              "type": "string",
-              "example": "Brand"
-            },
-            "required": {
-              "type": "boolean",
-              "example": true
-            },
-            "index": {
-              "type": "boolean",
-              "example": true
-            }
-          }
-        },
-        "productId": {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "function"
-            },
-            "ref": {
-              "type": "string",
-              "example": "Product"
-            },
-            "required": {
-              "type": "boolean",
-              "example": true
-            },
-            "index": {
-              "type": "boolean",
-              "example": true
-            }
-          }
-        },
-        "quantity": {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "function"
-            },
-            "required": {
-              "type": "boolean",
-              "example": true
-            }
-          }
-        },
-        "price": {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "function"
-            },
-            "required": {
-              "type": "boolean",
-              "example": true
-            }
-          }
-        },
-        "priceTotal": {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "function"
-            },
-            "set": {
-              "type": "function"
-            },
-            "default": {
-              "type": "function"
-            },
-            "transform": {
-              "type": "function"
             }
           }
         }
       }
     },
-    "Sale": {
+    "Exercise": {
       "type": "object",
       "properties": {
-        "userId": {
+        "title": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "function"
+            },
+            "trim": {
+              "type": "boolean",
+              "example": true
+            },
+            "required": {
+              "type": "boolean",
+              "example": true
+            }
+          }
+        },
+        "urlName": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "function"
+            },
+            "trim": {
+              "type": "boolean",
+              "example": true
+            }
+          }
+        },
+        "description": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "function"
+            },
+            "trim": {
+              "type": "boolean",
+              "example": true
+            },
+            "required": {
+              "type": "boolean",
+              "example": true
+            }
+          }
+        },
+        "type": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "function"
+            },
+            "trim": {
+              "type": "boolean",
+              "example": true
+            },
+            "required": {
+              "type": "boolean",
+              "example": true
+            }
+          }
+        }
+      }
+    },
+    "Stage": {
+      "type": "object",
+      "properties": {
+        "courseId": {
           "type": "object",
           "properties": {
             "type": {
@@ -1345,59 +1529,52 @@
             },
             "ref": {
               "type": "string",
-              "example": "User"
+              "example": "Course"
             },
             "required": {
-              "type": "boolean",
-              "example": true
-            },
-            "index": {
               "type": "boolean",
               "example": true
             }
           }
         },
-        "brandId": {
+        "title": {
           "type": "object",
           "properties": {
             "type": {
               "type": "function"
             },
-            "ref": {
-              "type": "string",
-              "example": "Brand"
-            },
-            "required": {
+            "trim": {
               "type": "boolean",
               "example": true
             },
-            "index": {
+            "required": {
               "type": "boolean",
               "example": true
             }
           }
         },
-        "productId": {
+        "description": {
           "type": "object",
           "properties": {
             "type": {
               "type": "function"
             },
-            "ref": {
-              "type": "string",
-              "example": "Product"
-            },
-            "required": {
+            "trim": {
               "type": "boolean",
               "example": true
             },
-            "index": {
+            "required": {
               "type": "boolean",
               "example": true
             }
           }
         },
-        "quantity": {
+        "exercises": {
+          "type": "array",
+          "example": [],
+          "items": {}
+        },
+        "order": {
           "type": "object",
           "properties": {
             "type": {
@@ -1409,7 +1586,7 @@
             }
           }
         },
-        "price": {
+        "isDone": {
           "type": "object",
           "properties": {
             "type": {
@@ -1418,23 +1595,10 @@
             "required": {
               "type": "boolean",
               "example": true
-            }
-          }
-        },
-        "priceTotal": {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "function"
-            },
-            "set": {
-              "type": "function"
             },
             "default": {
-              "type": "function"
-            },
-            "transform": {
-              "type": "function"
+              "type": "boolean",
+              "example": false
             }
           }
         }
